@@ -76,9 +76,9 @@ angular
           $(".loader").fadeOut(700);
           body.classList.add("fade-in");
         });
-
+        var backToTopButton = document.getElementById("back-to-top");
         window.onscroll = function () {
-          var backToTopButton = document.getElementById("back-to-top");
+          
           console.log(window.scrollY);
           if (window.scrollY > 500) {
             // Nếu vị trí cuộn vượt quá 200px, thêm lớp 'show'
@@ -88,6 +88,13 @@ angular
             backToTopButton.classList.remove("show");
           }
         };
+        $rootScope.toTop = function () {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // This adds smooth scrolling animation
+        });
+        }
+        
       });
     },
   ]);

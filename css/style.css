@@ -487,7 +487,7 @@ header .navbar .navBig svg {
   height: auto;
 }
 #Contact .logo {
-  background-image: url(../images/HomePage/logo02.png);
+  background-image: url(../images/HomePage/Logo02.png);
   height: 100px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -1830,7 +1830,7 @@ body.modal-open {
     box-sizing: border-box;
     width: 185px;
     height: 70px;
-    background-image: url(../images/HomePage/logo02.png);
+    background-image: url(../images/HomePage/Logo02.png);
     background-position: 56% 50%;
     background-size: 90% 98%;
     background-repeat: no-repeat;

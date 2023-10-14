@@ -836,6 +836,9 @@ header .navbar .navBig svg {
   background-color: #ffffff;
   background-image: none;
 }
+#commonCore .accordion-item button {
+  font-size: 1.5rem;
+}
 #commonCore h1 {
   display: block;
   color: #91b3b7;

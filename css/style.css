@@ -891,6 +891,13 @@ header .navbar .navBig svg {
   text-align: center;
   /* padding: 2rem 1rem; */
 }
+#commonCore .menu-select [type=button] {
+  background-color: rgba(143, 201, 0, 0.7411764706) !important;
+  transition: background-color 0.2s ease-in-out;
+}
+#commonCore .menu-select .active {
+  background-color: #8fc900 !important;
+}
 #commonCore .pt-standards:hover {
   color: #fff;
 }

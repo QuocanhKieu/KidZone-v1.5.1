@@ -6,8 +6,6 @@ angular
     "ngRoute",
     "ngAnimate",
     "commonCoreStandard",
-    "commonCoreGame",
-    "commonCorePrintable",
     "home",
     "contactUs",
     "help",
@@ -79,7 +77,7 @@ angular
         var backToTopButton = document.getElementById("back-to-top");
         window.onscroll = function () {
           
-          console.log(window.scrollY);
+          // console.log(window.scrollY);
           if (window.scrollY > 500) {
             // Nếu vị trí cuộn vượt quá 200px, thêm lớp 'show'
             backToTopButton.classList.add("show");

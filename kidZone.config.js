@@ -22,12 +22,6 @@ angular.module("kidZone").config([
       .when("/commonCoreStandard", {
         template: "<common-core-standard></common-core-standard>",
       })
-      .when("/commonCoreGame", {
-        template: "<common-core-game></common-core-game>",
-      })
-      .when("/commonCorePrintable", {
-        template: "<common-core-printable></common-core-printable>",
-      })
       .when("/allGamesTab/abcsTab", {
         template: "<abcs-tab></abcs-tab>",
       })

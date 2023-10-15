@@ -14,7 +14,7 @@
         <a
           type="button"
           class="button-flat-color uppercase pt-standards active"
-          href="#!/commonCoreStandard"
+          ng-click="$ctrl.toggleCommon('accordionExample', $event)"
           rel="noopener"
           aria-current="page"
           >Standards</a
@@ -22,14 +22,14 @@
         <a
           type="button"
           class="button-flat-color uppercase pt-standards"
-          href="#!/commonCoreGame"
+          ng-click="$ctrl.toggleCommon('coreGame',$event)"
           rel="noopener"
           >Games</a
         >
         <a
           type="button"
           class="button-flat-color uppercase pt-standards"
-          href="#!/commonCorePrintable"
+          ng-click="$ctrl.toggleCommon('corePrint',$event)"
           rel="noopener"
           >Printables</a
         >
@@ -90,7 +90,7 @@
     </form>
   </div>
   
-  <div class="accordion" id="accordionExample">
+  <div class="accordion coreStandard pt-3" id="accordionExample" ng-show="$ctrl.commonStandardToggle">
     <div class="accordion-item">
       <button
         class="accordion-button collapsed"
@@ -356,6 +356,836 @@
           </div>
         </div>
   
+    </div>
+  </div>
+
+  <div class="standards-content m-0 " id="corePrint" ng-show="$ctrl.commonPrintableToggle">
+    <div class="container standards-content-container">
+  
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="1">
+        <div data-testid="minibanner-link-resource-2d-shapes" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables01.jpg" alt="2D Shapes" draggable="false">
+          </picture>
+        </div>
+          <div class="minibanner-label">
+            <div class="minibanner-label-title">
+              <div class="mblt-text">2D Shapes</div>
+            </div>
+            <div class="minibanner-label-grades-type">
+              <div class="minibanner-label-grades">Grades K – 1</div>
+              <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+            </div>
+          </div>
+          <div class="minibanner-badge-container">
+            <!-- <div data-testid="premium-badge" class="premiumbadge">
+              <div class="shimmer-img-container">
+                <div class="shimmer-img">
+                  <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+                </div>
+              </div>
+              <div class="flare-img bottom-right">
+                <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+              </div>
+              <div class="flare-img upper-left">
+                <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+              </div>
+            </div> -->
+          </div>
+      </div>
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="2">
+        <div data-testid="minibanner-link-resource-3d-shapes" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables02.jpg" alt="3D Shapes" draggable="false">
+            </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">3D Shapes</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades K – 1</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="3">
+        <div data-testid="minibanner-link-resource-types-triangles" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables03.jpg" alt="6 Types of Triangles" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">6 Types of Triangles</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 2 – 4</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="4">
+        <div data-testid="minibanner-link-worksheet-adding-decimals" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables04.jpg" alt="Adding Decimals" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adding Decimals</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 5 – 6+</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="5">
+        <div data-testid="minibanner-link-worksheet-addition-sums-20" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables05.jpg" alt="Addition Facts: Sums to 20" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Addition Facts: Sums to 20</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 1 – 2</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+         <!--  <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="6">
+        <div data-testid="minibanner-link-resource-angle-anatomy" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables06.jpg" alt="Angle Anatomy" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Angle Anatomy</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 2 – 4</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="7">
+        <div data-testid="minibanner-link-worksheet-area-compound-shapes" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables07.jpg" alt="Area of Compound Shapes" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Area of Compound Shapes</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 3 – 6+</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img"><img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation"></div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="8">
+        <div data-testid="minibanner-link-worksheet-area-rectangle" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables08.jpg" alt="Area of Rectangles" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Area of Rectangles</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 3 – 5</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="9">
+        <div data-testid="minibanner-link-worksheet-beginning-sounds" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables09.jpg" alt="Beginning Sounds" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Beginning Sounds</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 1</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="10">
+        <div data-testid="minibanner-link-worksheet-capitalization" class="minibanner-art">
+          <picture>
+              <img class="webp-image" src="images/printables10.jpg" alt="Capitalization" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Capitalization</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 5 – 6+</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="11">
+        <div data-testid="minibanner-link-worksheet-cause-effect" class="minibanner-art">
+          <picture>
+            <img class="webp-image" src="images/printables11.jpg" alt="Cause &amp; Effect" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Cause &amp; Effect</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 5 – 6+</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+              </div>
+              <div class="flare-img bottom-right">
+                <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+              </div>
+              <div class="flare-img upper-left">
+                <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+              </div>
+            </div> -->
+          </div>
+        </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="12">
+        <div data-testid="minibanner-link-worksheet-compare-numbers-1-10" class="minibanner-art">
+          <picture>
+            <img class="webp-image" src="images/printables12.jpg" alt="Compare Numbers: 1-10" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Compare Numbers: 1-10</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – K</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+          <!-- <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> -->
+        </div>
+      </div>
+  
+  
+      <div class="minibanner mb-portrait mb-no-icon" tabindex="13">
+        <div data-testid="minibanner-link-worksheet-compare-3-digit-numbers" class="minibanner-art">
+          <picture>
+            <img class="webp-image" src="images/printables13.jpg" alt="Compare Three-Digit Numbers" draggable="false">
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Compare Three-Digit Numbers</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grade 2</div>
+            <img src="/client/assets/mbTypeIcon_printable-3e1f05ff716157fbe534.svg" width="24" height="24" alt="printable" class="minibanner-label-type">
+          </div>
+        </div>
+        <div class="minibanner-badge-container">
+        <!--   <div data-testid="premium-badge" class="premiumbadge">
+            <div class="shimmer-img-container">
+              <div class="shimmer-img">
+                <img src="/client/assets/shimmer2-8a90528e0b17c6be5898.png" alt="Shimmer animation">
+              </div>
+            </div>
+            <div class="flare-img bottom-right">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+            <div class="flare-img upper-left">
+              <img src="/client/assets/flare-e4999e4e0e72cfe64b0d.png" alt="Flare animation">
+            </div>
+          </div> --> 
+        </div>
+      </div>
+  
+  
+    </div>
+  </div>
+
+  <div class="standard-contents " id="coreGame" ng-show="$ctrl.commonGameToggle">
+    <div class="container standards-content-container">
+      <div class="minibanner mb-no-icon" tabindex="1">
+        <div
+          data-testid="minibanner-link-one_hundred_snowballs"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_01.jpg"
+              alt="100 Snowballs!"
+              draggable="false"
+          /></picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">100 Snowballs!</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 5</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="2">
+        <div data-testid="minibanner-link-2048" class="minibanner-art">
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_02.jpg"
+              alt="2048"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">2048</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 4 – 6+</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="3">
+        <div
+          data-testid="minibanner-link-alphabet_number_magnets"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_03.jpg"
+              alt="ABC and 123 Magnets"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">ABC and 123 Magnets</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 1</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="4">
+        <div data-testid="minibanner-link-abcya_paint" class="minibanner-art">
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_04.jpg"
+              alt="ABCya Paint"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">ABCya Paint</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 6+</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="5">
+        <div
+          data-testid="minibanner-link-days_of_the_week"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_05.jpg"
+              alt="Adventure Man - Days of the Week"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adventure Man - Days of the Week</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 1 – 2</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="6">
+        <div
+          data-testid="minibanner-link-months_of_the_year"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_06.jpg"
+              alt="Adventure Man - Months of the Year"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adventure Man - Months of the Year</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 1 – 2</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="7">
+        <div
+          data-testid="minibanner-link-adventure_man_dash_letters"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_07.jpg"
+              alt="Adventure Man Dungeon Dash - Letters"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adventure Man Dungeon Dash - Letters</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades K – 5</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="8">
+        <div
+          data-testid="minibanner-link-adventure_man_dash_numbers"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_08.jpg"
+              alt="Adventure Man Dungeon Dash - Numbers"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adventure Man Dungeon Dash - Numbers</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades 1 – 5</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="9">
+        <div
+          data-testid="minibanner-link-adventure_man_dash_shapes_colors"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_09.jpg"
+              alt="Adventure Man Dungeon Dash - Shapes &amp; Colors"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">
+              Adventure Man Dungeon Dash - Shapes &amp; Colors
+            </div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 3</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="10">
+        <div
+          data-testid="minibanner-link-adventure-man-counting"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_10.jpg"
+              alt="Adventure Man and the Counting Quest"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Adventure Man and the Counting Quest</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades K – 6+</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="11">
+        <div data-testid="minibanner-link-all_about_me" class="minibanner-art">
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_11.jpg"
+              alt="All About Me"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">All About Me</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 2</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="12">
+        <div
+          data-testid="minibanner-link-alphabats_alliteration"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_12.jpg"
+              alt="Alphabats - Alliteration"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Alphabats - Alliteration</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 2</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
+      <div class="minibanner mb-no-icon" tabindex="13">
+        <div
+          data-testid="minibanner-link-alphabats_rhyming"
+          class="minibanner-art"
+        >
+          <picture>
+            <img
+              class="webp-image"
+              src="images/game_13.jpg"
+              alt="Alphabats - Rhyming Words"
+              draggable="false"
+            />
+          </picture>
+        </div>
+        <div class="minibanner-label">
+          <div class="minibanner-label-title">
+            <div class="mblt-text">Alphabats - Rhyming Words</div>
+          </div>
+          <div class="minibanner-label-grades-type">
+            <div class="minibanner-label-grades">Grades PRE-K – 2</div>
+            <img
+              src="/client/assets/mbTypeIcon_game-51a82132f9bb1f47a8ad.svg"
+              width="24"
+              height="24"
+              alt="game"
+              class="minibanner-label-type"
+            />
+          </div>
+        </div>
+        <div class="minibanner-badge-container"></div>
+      </div>
     </div>
   </div>
 </div>

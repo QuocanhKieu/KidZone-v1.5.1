@@ -1028,6 +1028,13 @@ header {
   .menu-select {
     text-align: center;
     /* padding: 2rem 1rem; */
+    [type=button] {
+      background-color: #8fc900bd !important;
+      transition: background-color 0.2s ease-in-out;
+    }
+    .active {
+      background-color: #8fc900ff !important;
+    }
   }
 
   .pt-standards:hover {

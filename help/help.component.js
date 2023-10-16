@@ -4,13 +4,13 @@
 angular.module("help").component("help", {
   templateUrl: "help/help.template.html",
   controller: [
-    "$location", "$anchorScroll",
+    "$location",
+    "$anchorScroll",
     function PhoneListController($location, $anchorScroll) {
       var self = this;
       self.scrollToSection = function (sectionId) {
         $location.hash(sectionId);
         $anchorScroll();
-
       };
     },
   ],

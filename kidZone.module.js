@@ -13,6 +13,8 @@ angular
     "allGamesTab",
     "abcsTab",
     "gameDetail",
+    "subscribeJoin",
+    "premiumTab"
   ])
   .run([
     "$rootScope",
@@ -20,7 +22,12 @@ angular
     "$window",
     "$location",
     function ($rootScope, $route, $window, $location) {
+      $rootScope.email = "";
+      $rootScope.password = "";
+
+      console.log($rootScope.$loginFlag);
       window.addEventListener("load", function () {
+        // $rootScope.$loginFlag = false;
         $(".curtain-loading").fadeOut();
         $(".loader").fadeOut();
         var body = document.body;
@@ -46,24 +53,31 @@ angular
             "/commonCorePrintable",
           ];
 
-          if(current.$$route && current.$$route.originalPath === "/help" && next.$$route.originalPath ==="/help") return;
+          if (
+            current.$$route &&
+            current.$$route.originalPath === "/help" &&
+            next.$$route.originalPath === "/help"
+          )
+            return;
 
-          if(current.$$route && current.$$route.originalPath.includes("commonCore") && next.$$route.originalPath.includes("commonCore")) return;
+          if (
+            current.$$route &&
+            current.$$route.originalPath.includes("commonCore") &&
+            next.$$route.originalPath.includes("commonCore")
+          )
+            return;
 
           $(".curtain-loading").show();
           $(".loader").show();
 
           // Check if the next route's path matches your conditional URL
           if (
-            next.$$route 
-            &&
+            next.$$route &&
             noLoadingUrls.includes(next.$$route.originalPath)
           ) {
             // return with no page loading
             return;
           } else {
-
-
           }
         });
 
@@ -76,7 +90,6 @@ angular
         });
         var backToTopButton = document.getElementById("back-to-top");
         window.onscroll = function () {
-          
           // console.log(window.scrollY);
           if (window.scrollY > 500) {
             // Nếu vị trí cuộn vượt quá 200px, thêm lớp 'show'
@@ -89,10 +102,56 @@ angular
         $rootScope.toTop = function () {
           window.scrollTo({
             top: 0,
-            behavior: 'smooth' // This adds smooth scrolling animation
+            behavior: "smooth", // This adds smooth scrolling animation
+          });
+        };
+
+        $rootScope.login = function (email, password) {
+          const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+          // Find a user with the provided email
+          const user = storedUsers.find((u) => u.email === email);
+
+          if (user) {
+            if (user.password === password) {
+              // Password matches, so the login is successful
+              console.log("Login successful. Welcome, " + user.username + "!");
+              $('.mainLoginBtn').hide()
+              $('.logout').css("display","block")
+              $('.hnf-premium').hide()
+              $('.premiumTab').css("display","block")
+              localStorage.login = true;
+              return true;
+            } else {
+              // Incorrect password
+              console.log("Incorrect password. Please try again.");
+            }
+          } else {
+            // User with the provided email doesn't exist
+            console.log("User not found. Please register an account.");
+          }
+
+          return false;
+        };
+        $(".mainLoginBtn").on("click", function (event) {
+          $rootScope.email = "";
+          $rootScope.password = "";
+          console.log("mainLoginClicked");
         });
-        }
-        
+        $("#loginForm").on("submit", function (event) {
+          event.preventDefault();
+          console.log("login");
+          $rootScope.login($rootScope.email, $rootScope.password);
+        });
+        $(".logout").on("click", function (event) {
+          $rootScope.$loginFlag = false;
+          console.log($rootScope.$loginFlag);
+          $('.mainLoginBtn').show()
+          $('.logout').css("display","none")
+          $('.hnf-premium').show()
+          $('.premiumTab').css("display","none")
+          localStorage.login = true;
+        });
       });
     },
   ]);

@@ -37,6 +37,10 @@
     <script src="./abcs-tab/abcs-tab.component.js"></script>
     <script src="./game-detail/game-detail.module.js"></script>
     <script src="./game-detail/game-detail.component.js"></script>
+    <script src="./subscribe-join/subscribe-join.module.js"></script>
+    <script src="./subscribe-join/subscribe-join.component.js"></script>
+    <script src="./premium-tab/premium-tab-tab.module.js"></script>
+    <script src="./premium-tab/premium-tab.component.js"></script>
 
     <script src="./kidZone.module.js"></script>
     <script src="./kidZone.config.js"></script>
@@ -87,6 +91,21 @@
                 <li>
                   <a class="dropdown-item" href="#!/contacUs">Contact Us</a>
                 </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+
+                    >Join Now For Premium</a
+                  >
+                </li>
+                <li style="background-color: #089478">
+                  <a
+                    class="dropdown-item premiumDrop"
+                    href="#!/premiumTab"
+
+                    >Premium Games</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="searchBoxSmall p-0">
@@ -104,6 +123,12 @@
               </p>
               <div
                 class="collapse position-absolute top-100 end-0 w-100"
+                style="
+                  z-index: 1;
+                  border: 1px solid grey;
+                  border-top: 0px solid transparent;
+                  box-shadow: 0px 2px 2px grey;
+                "
                 id="collapseSearch"
               >
                 <form class="d-flex align-items-center" role="search">
@@ -117,7 +142,6 @@
                   <button
                     class="btn btn-outline-success border border-0 bigSearchBtn"
                     type="submit"
-                   
                   >
                     <i class="fa-solid fa-magnifying-glass pe-5"></i>
                   </button>
@@ -126,11 +150,20 @@
             </div>
             <button
               type="button"
-              class="loginBtn btn"
+              class="loginBtn btn mainLoginBtn" 
               data-bs-toggle="modal"
               data-bs-target="#loginModal"
+
             >
               Login
+            </button>
+            <button
+              type="button"
+              class="loginBtn btn logout "
+
+
+            >
+            Logout
             </button>
           </nav>
           <nav
@@ -146,17 +179,19 @@
                 placeholder="Search KidZone"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success bigSearchBtn" type="submit">
+              <button
+                class="btn btn-outline-success bigSearchBtn"
+                type="submit"
+              >
                 <i class="fa-solid fa-magnifying-glass pe-3"></i>
               </button>
             </form>
-
 
             <ul
               class="pageContainer text-center d-none d-md-flex flex-row justify-content-around flex-grow-1 m-0 p-0 align-items-center"
             >
               <li class="">
-                <a class="nav-link" href="#!/commonCoreStandard"
+                <a class="nav-link ms-2" href="#!/commonCoreStandard"
                   >Common Core<br />Standards</a
                 >
               </li>
@@ -173,13 +208,55 @@
                 <a class="nav-link" href="#!/contacUs">Contact Us</a>
               </li>
               <li class="">
+                <a
+                  class="hnf-premium nav-link"
+                  href="#!/subscribeJoin"
+
+                >
+                  <div class="shimmer-img-container">
+                    <div class="shimmer-img">
+                      <img
+                        src="images/shimmer-5e15b440b40d69d80b03.png"
+                        alt="Shimmer animation"
+                      />
+                    </div>
+                  </div>
+                  Join Now <br />
+                  For Premium</a
+                >
+                <a
+                  class="hnf-premium nav-link premiumTab " 
+                  href="#!/premiumTab"
+
+                >
+                  <div class="shimmer-img-container">
+                    <div class="shimmer-img">
+                      <img
+                        src="images/shimmer-5e15b440b40d69d80b03.png"
+                        alt="Shimmer animation"
+                      />
+                    </div>
+                  </div>
+                  Premium <br />
+                  Games</a
+                >
+              </li>
+              <li class="">
                 <button
                   type="button"
-                  class="loginBtn btn"
+                  class="loginBtn btn mainLoginBtn"
                   data-bs-toggle="modal"
                   data-bs-target="#loginModal"
+
                 >
                   Login
+                </button>
+                <button
+                  type="button"
+                  class="loginBtn btn logout"
+
+                >
+                  Logout
                 </button>
               </li>
             </ul>
@@ -259,7 +336,7 @@
             type="button"
             class="button-flat-color cyan round dimensional text"
           >
-            JOIN&nbsp;NOW<br />For&nbsp;Premium
+            <a href="#!/subscribeJoin"> JOIN&nbsp;NOW<br />For&nbsp;Premium </a>
           </button>
           <h4 class="fw-lighter">
             Copyright 2023 Kiz-Zone.com, L.L.C., a division of IXL Learning •
@@ -280,8 +357,7 @@
               alt=""
             />
           </div>
-          <a  id="back-to-top"
-          ng-click="toTop()"
+          <a id="back-to-top" ng-click="toTop()"
             ><i class="fa-solid fa-angle-up"></i
           ></a>
         </div>
@@ -315,14 +391,19 @@
           </div>
           <div class="modal-body text-center">
             <h3 class="bodyHead">This login is for all subscribers</h3>
-            <form action="" class="fs-2 p-2 formForContact row" novalidate>
+            <form
+              action=""
+              class="fs-2 p-2 formForContact row"
+              novalidate
+              id="loginForm"
+            >
               <div class="col-12">
                 <input
                   class="form-control fs-2 my-3"
                   type="email"
                   name="email"
                   id="email"
-                  value=""
+                  ng-model="email"
                   placeholder="Email Address / Access Name"
                 />
                 <!-- <div class="emailHelper helper">
@@ -338,7 +419,7 @@
                   type="password"
                   name="password"
                   id="password"
-                  value=""
+                  ng-model="password"
                   placeholder="Password / Access Code"
                 />
                 <!-- <div class="emailHelper helper">
@@ -349,8 +430,9 @@
                 </div>
               </div>
               <button
-                type="button"
+                type="submit"
                 class="btn btn-secondary loginModalBtn text-nowrap fs-4"
+                data-bs-dismiss="modal"
               >
                 LOG IN
               </button>
@@ -378,8 +460,17 @@
             class="modal-footer d-block text-center border-0 pb-4 loginFooter"
           >
             <h3 class="footHead fw-bold mb-3">Not a subscriber?</h3>
-            <button type="button" class="btn btn-secondary joinBtn fs-3">
-              JOIN NOW
+            <button
+              type="button"
+              class="btn btn-secondary joinBtn fs-3"
+              data-bs-dismiss="modal"
+            >
+              <a
+                href="#!/subscribeJoin"
+                class="join d-block"
+                style="text-decoration: none; color: unset"
+                >JOIN NOW</a
+              >
             </button>
           </div>
         </div>

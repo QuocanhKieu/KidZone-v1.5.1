@@ -25,9 +25,17 @@ angular.module("kidZone").config([
       .when("/allGamesTab/abcsTab", {
         template: "<abcs-tab></abcs-tab>",
       })
+      .when("/subscribeJoin", {
+        template: "<subscribe-join></subscribe-join>",
+      })
+      .when("/premiumTab", {
+        template: "<premium-tab></premium-tab>",
+      })
+      
       .when("/games/:gameId", {
         template: "<game-detail></game-detail>",
       })
+
       .otherwise("/home");
   },
 ]);
